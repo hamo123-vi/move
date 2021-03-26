@@ -8,14 +8,18 @@ print_r($user); */
 
 $user=
 [
-    "email" => "bojana.bojic@gmail.com",
-    "password" => "bojana123",
-    "first_name" => "Bojana",
-    "last_name" => "Bojić",
-    "phone_number" => "38762101101"
+    "email" => "bojic.bojana@gmail.com",
+    "password" => "password263"
 ];
 
-$user_dao->add_user($user);
+$sql="UPDATE users SET ";
+        foreach($user as $key => $value)
+        {
+            $sql.= $key ." = :" .$key . ", ";
+        }
+        $sql=substr($sql, 0, -2);
+        $sql.=" WHERE id = :id";
+echo $sql;
+$id=2;
+$user_dao->update_user($id, $user);
 
-
-?>

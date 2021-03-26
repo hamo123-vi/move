@@ -31,4 +31,18 @@ class BaseDao{
         $results=$this->query($query, $params);
         return reset($results);
     }
+
+    public function update($table, $id, $entity)
+    {
+        $sql="UPDATE {$table} SET ";
+        foreach($entity as $key => $value)
+        {
+            $sql.= $key ." = :" .$key . ", ";
+        }
+        $sql=substr($sql, 0, -2);
+        $sql.=" WHERE id = :id";
+        $stmt=$this->connection->prepare($sql);
+        $entity['id']=$id;
+        $stmt->execute($entity);
+    }
 }

@@ -15,4 +15,10 @@ class UserDao extends BaseDao
         $stmt=$this->connection->prepare($sql);
         $stmt->execute($user);
     }
+
+    public function update_user($id, $user)
+    {
+        $table="users";
+        $this->update($table, $id, $user);
+    }
 }
