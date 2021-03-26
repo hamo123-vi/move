@@ -32,7 +32,7 @@ class BaseDao{
         return reset($results);
     }
 
-    public function update($table, $id, $entity)
+    public function update($table, $id, $entity, $id_column = "id")
     {
         $sql="UPDATE {$table} SET ";
         foreach($entity as $key => $value)
@@ -40,7 +40,7 @@ class BaseDao{
             $sql.= $key ." = :" .$key . ", ";
         }
         $sql=substr($sql, 0, -2);
-        $sql.=" WHERE id = :id";
+        $sql.=" WHERE {$id_column} = :id";
         $stmt=$this->connection->prepare($sql);
         $entity['id']=$id;
         $stmt->execute($entity);
