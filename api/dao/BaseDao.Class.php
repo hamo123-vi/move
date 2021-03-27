@@ -45,4 +45,23 @@ class BaseDao{
         $entity['id']=$id;
         $stmt->execute($entity);
     }
+
+    public function insert($table, $entity)
+    {
+        $sql="INSERT INTO users (";
+        foreach($entity as $key => $pair)
+        {
+            $sql.="{$key}, ";
+        }
+        $sql=substr($sql, 0, -2);
+        $sql.=") VALUES (";
+        foreach($entity as $key => $pair)
+        {
+        $sql.=":{$key}, ";
+        }
+        $sql=substr($sql, 0, -2);
+        $sql.=")";
+        $stmt=$this->connection->prepare($sql);
+        $stmt->execute($entity);
+    }
 }
