@@ -10,19 +10,19 @@ $diagnosis_dao=new DiagnosisDao();
 
 $diagnosis=
 [
-    "type" => "Diskus Hernija",
-    "description" => "Diskus hernija, odnosno prolaps diska je dijagnoza
-     koja se postavlja kada se pomjeri iz svog ležišta međupršljenski disk
-     koji se nalazi između dva kičmena pršljena I dovede do pritiska na živac
-     ili kičmenu moždinu. Pomjeranje diska se može desiti na bilo kojem dijelu
-     kičme ali se najčešće javlja na vratnom dijelu 
-     kičme ili lumbalnog dijela kičme."
+    "description" => "Reumatoidni artritis je teška, kronična,
+                         upalna bolest vezivnog tkiva koje se najviše očituje
+                          na zglobovima. U ovom poremećaju imunološki sustav napada
+                           hrskavično tkivo, kosti i, ponekad, unutarnje organe.
+                            Od zglobova su najčešće zahvaćeni mali zglobovi šake, zglavci,
+                             ramena, koljena i gležnjevi. Uz odgovarajuće zdravstvene mjere
+                              i izmjene životnog stila, oboljeli mogu imati dug i kvalitetan život."
 ];
 
 try
 {
-    $diagnosis_dao->insert("diagnosis",$diagnosis);
-    echo "INSERTED!!!";
+    $diagnosis_dao->update_diagnosis("Reumatoidni artritis",$diagnosis);
+    echo "UPDATED!!!";
 }
 catch(Exception $e)
 {
