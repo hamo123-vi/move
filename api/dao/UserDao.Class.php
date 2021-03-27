@@ -23,7 +23,7 @@ class UserDao extends BaseDao
         $this->insert("users", $user);
     }
 
-    public function update_user($id, $user)
+    public function update_user_by_id($id, $user)
     {
         $table="users";
         $this->update($table, $id, $user);
