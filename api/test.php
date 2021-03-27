@@ -11,17 +11,16 @@ require_once dirname(__FILE__).'/dao/GeneralDao.Class.php';
 require_once dirname(__FILE__).'/dao/ServiceDao.Class.php';
 require_once dirname(__FILE__).'/dao/ServiceCheckDao.Class.php';
 
-$exam=new ExaminationDao();
+$general_dao=new GeneralDao();
+$general=
+[
+    "phone_number" => "38732744909"
+];
+
+$general_dao->update_generals($general);
 
 
-try
-{
-    // ...
-}
-catch(Exception $e)
-{
-    $e->getMessage();
-}
+
 
 
 

@@ -8,4 +8,11 @@ class ExaminationDao extends BaseDao
     {
         $this->insert("examinations", $examination);
     }
+
+    public function get_all_examinations()
+    {
+        return $this->query("SELECT a.id, b.date FROM examinations a
+                     JOIN appointments b ON a.appointment_id = b.id",[] 
+                    );
+    }
 }
