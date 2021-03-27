@@ -48,7 +48,7 @@ class BaseDao{
 
     public function insert($table, $entity)
     {
-        $sql="INSERT INTO users (";
+        $sql="INSERT INTO {$table} (";
         foreach($entity as $key => $pair)
         {
             $sql.="{$key}, ";
