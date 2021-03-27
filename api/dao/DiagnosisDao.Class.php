@@ -9,7 +9,7 @@ class DiagnosisDao extends BaseDao
         $this->insert("diagnosis", $diagnosis);
     }
 
-    public function update_diagnosis($type, $diagnosis)
+    public function update_diagnosis_by_type($type, $diagnosis)
     {
         $this->update("diagnosis", $type, $diagnosis, "type");
     }
