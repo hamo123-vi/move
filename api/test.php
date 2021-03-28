@@ -11,13 +11,12 @@ require_once dirname(__FILE__).'/dao/GeneralDao.Class.php';
 require_once dirname(__FILE__).'/dao/ServiceDao.Class.php';
 require_once dirname(__FILE__).'/dao/ServiceCheckDao.Class.php';
 
-$general_dao=new GeneralDao();
-$general=
+$service_dao=new ServiceDao();
+$service=
 [
-    "phone_number" => "38732744909"
+    "price" => 90
 ];
-
-$general_dao->update_generals($general);
+$service_dao->update_service_by_id($service, 2);
 
 
 

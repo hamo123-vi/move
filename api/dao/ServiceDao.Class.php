@@ -1,0 +1,20 @@
+<?php
+
+require_once dirname(__FILE__)."/BaseDao.Class.php";
+
+class ServiceDao extends BaseDao
+{
+    public function insert_service($service)
+    {
+        $this->insert("services", $service);
+    }
+
+    public function update_service_by_type($service,$type)
+    {
+        $this->update("services", $type, $service, "type");
+    }
+    public function update_service_by_id($service,$id)
+    {
+        $this->update("services", $id, $service);
+    }
+}
