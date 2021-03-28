@@ -18,4 +18,9 @@ class ServiceDao extends BaseDao
     {
         $this->update("services", $id, $service);
     }
+
+    public function get_all_services()
+    {
+        return $this->query("SELECT * FROM services", []);
+    }
 }

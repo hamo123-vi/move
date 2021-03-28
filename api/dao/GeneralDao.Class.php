@@ -14,4 +14,9 @@ class GeneralDao extends BaseDao
         $stmt=$this->connection->prepare($sql);
         $stmt->execute($entity);
     }
+
+    public function get_general($column)
+    {
+        return $this->query("SELECT {$column} FROM general",[]);
+    } 
 }

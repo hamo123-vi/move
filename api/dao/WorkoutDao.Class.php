@@ -18,4 +18,5 @@ class WorkoutDao extends BaseDao
     {
         $this->update("workouts", $id, $workout);
     }
+
 }
