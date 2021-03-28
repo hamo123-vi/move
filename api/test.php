@@ -11,7 +11,7 @@ require_once dirname(__FILE__).'/dao/GeneralDao.Class.php';
 require_once dirname(__FILE__).'/dao/ServiceDao.Class.php';
 require_once dirname(__FILE__).'/dao/ServiceCheckDao.Class.php';
 
-$dc_dao=new DiagnosisCheckDao();
+
 
 
 

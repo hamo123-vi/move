@@ -6,8 +6,9 @@ class DiagnosisCheckDao extends BaseDao
     {
         return $this->query("SELECT a.type FROM diagnosis a
                             JOIN diagnosis_check b ON a.id=b.diagnosis_id
-                            JOIN examinations c ON c.id=b.examination_id",
-                            ["b.examination_id" => $examination_id]
+                            JOIN examinations c ON c.id=b.examination_id
+                            WHERE c.id = :examination_id",
+                            ["examination_id" => $examination_id]
                             );
     }
 
@@ -17,8 +18,8 @@ class DiagnosisCheckDao extends BaseDao
                             JOIN diagnosis_check b ON a.id=b.diagnosis_id
                             JOIN examinations c ON b.examination_id=c.id
                             JOIN appointments d ON c.appointment_id=d.id
-                            JOIN users e ON d.user_id=e.id",
-                            ["e.id" => $user_id]
+                            WHERE d.user_id = :user_id",
+                            ["user_id" => $user_id]
                             );
     }
 }
