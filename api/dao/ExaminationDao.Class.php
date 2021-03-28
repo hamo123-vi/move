@@ -12,7 +12,7 @@ class ExaminationDao extends BaseDao
     public function get_all_examinations()
     {
         return $this->query("SELECT a.id, b.date FROM examinations a
-                     JOIN appointments b ON a.appointment_id = b.id",[] 
-                    );
+                        	JOIN appointments b ON a.appointment_id = b.id",[] 
+                            );
     }
 }
