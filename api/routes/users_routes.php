@@ -1,9 +1,10 @@
 <?php
 
 Flight::route('GET /users',function(){
-    $dao=new UserDao();
-    $users=$dao->get_all_users();
-    Flight::json($users);
+    $offset=Flight::query('offset', 0);
+    $limit=Flight::query('limit', 10);
+    print_r($offset);
+    print_r($limit);
 });
 
 Flight::route('GET /user/@id',function($id){
@@ -26,6 +27,3 @@ Flight::route('POST /update_user/@id', function($id){
     $dao->update_user_by_id($id, $data);
     Flight::json($data);
 });
-
-
-Flight::start();
