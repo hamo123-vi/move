@@ -8,6 +8,8 @@ require dirname(__FILE__)."/dao/UserDao.Class.php";
 require dirname(__FILE__).'/../vendor/autoload.php';
 require_once dirname(__FILE__)."/routes/users_routes.php";
 
+Flight::register('userDao', 'UserDao');
+
 Flight::map('query', function($name, $default_value = NULL){
     $request=Flight::request();
     $query_param=@$request->data->getData()[$name];
