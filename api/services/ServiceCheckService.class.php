@@ -16,5 +16,10 @@
             return $this->dao->get_services_by_appointment_id($appointment_id);
         }
 
+        public function get_total_price_for_appointment($appointment_id)
+        {
+            return $this->dao->get_total_price_for_appointment($appointment_id);
+        }
+
     }
 ?>
