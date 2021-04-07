@@ -22,5 +22,10 @@
         {
             $this->dao->add_user($user);
         }
+
+        public function update_user_by_id($id, $user)
+        {
+            $this->dao->update_user_by_id($id, $user);
+        }
     }
 ?>

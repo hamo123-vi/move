@@ -30,8 +30,4 @@ class UserDao extends BaseDao
         $this->update($table, $id, $user);
     }
 
-    public function update_user_by_email($email, $user)
-    {
-        $this->update("users", $email, $user, "email");
-    }
 }

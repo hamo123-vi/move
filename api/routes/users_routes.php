@@ -19,8 +19,8 @@ Flight::route('POST /user', function(){
     Flight::json($data);
 });
 
-Flight::route('POST /update_user/@id', function($id){
+Flight::route('PUT /update_user/@id', function($id){
     $data=Flight::request()->data->getData();
-    Flight::userDao()->update_user_by_id($id, $data);
+    Flight::userService()->update_user_by_id($id, $data);
     Flight::json($data);
 });
