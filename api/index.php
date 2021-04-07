@@ -9,6 +9,7 @@ require_once dirname(__FILE__)."/routes/services_routes.php";
 require_once dirname(__FILE__)."/routes/service_check_routes.php";
 require_once dirname(__FILE__)."/routes/appointments_routes.php";
 require_once dirname(__FILE__)."/routes/generals_routes.php";
+require_once dirname(__FILE__)."/routes/examinations_routes.php";
 
 #Import Services layer
 require_once dirname(__FILE__)."/services/UserService.class.php";
@@ -16,6 +17,7 @@ require_once dirname(__FILE__)."/services/ServiceService.class.php";
 require_once dirname(__FILE__)."/services/ServiceCheckService.class.php";
 require_once dirname(__FILE__)."/services/AppointmentService.class.php";
 require_once dirname(__FILE__)."/services/GeneralService.class.php";
+require_once dirname(__FILE__)."/services/ExaminationService.class.php";
 
 #Registering Service layer
 Flight::register('userService', 'UserService');
@@ -23,6 +25,7 @@ Flight::register('serviceService', 'ServiceService');
 Flight::register('serviceCheckService', 'ServiceCheckService');
 Flight::register('appointmentService', 'AppointmentService');
 Flight::register('generalService', 'GeneralService');
+Flight::register('examinationService', 'ExaminationService');
 
 #Mapping 'query' function
 Flight::map('query', function($name, $default_value){
