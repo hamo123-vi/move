@@ -3,7 +3,7 @@
 Flight::route('GET /users',function(){
     $offset=Flight::request()->query['offset'];
     $limit=Flight::request()->query['limit'];
-    $users=Flight::userDao()->get_all_users($offset, $limit);
+    $users=Flight::userService()->get_all_users($offset, $limit);
     Flight::json($users);
 });
 
