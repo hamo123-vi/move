@@ -16,5 +16,15 @@
             return $this->dao->get_all_appointments();
         }
 
+        public function insert_appointment($appointment)
+        {
+            $this->dao->insert_appointment($appointment);
+        }
+
+        public function update_appointment($id, $appointment)
+        {
+            $this->dao->update_appointment($id, $appointment);
+        }
+
     }
 ?>
