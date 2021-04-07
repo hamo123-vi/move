@@ -10,11 +10,13 @@ require dirname(__FILE__).'/../vendor/autoload.php';
 require_once dirname(__FILE__)."/routes/users_routes.php";
 require_once dirname(__FILE__)."/routes/services_routes.php";
 require_once dirname(__FILE__)."/services/UserService.class.php";
+require_once dirname(__FILE__)."/services/ServiceService.class.php";
 
 Flight::register('userDao', 'UserDao');
 Flight::register('serviceDao', 'ServiceDao');
 
-Flight::register('userService','UserService');
+Flight::register('userService', 'UserService');
+Flight::register('serviceService', 'ServiceService');
 
 Flight::map('query', function($name, $default_value){
     $request=Flight::request();
