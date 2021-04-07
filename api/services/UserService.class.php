@@ -12,5 +12,10 @@
         {
             return $this->dao->get_all_users($offset, $limit);
         }
+
+        public function get_user_by_id($id)
+        {
+            return $this->dao->get_user_by_id($id);
+        }
     }
 ?>
