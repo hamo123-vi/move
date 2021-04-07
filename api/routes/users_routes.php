@@ -15,7 +15,7 @@ Flight::route('GET /user/@id',function($id){
 Flight::route('POST /user', function(){
     $request=Flight::request();
     $data=$request->data->getData();
-    Flight::userDao()->add_user($data);
+    Flight::userService()->add_user($data);
     Flight::json($data);
 });
 

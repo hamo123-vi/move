@@ -17,5 +17,10 @@
         {
             return $this->dao->get_user_by_id($id);
         }
+
+        public function add_user($user)
+        {
+            $this->dao->add_user($user);
+        }
     }
 ?>
