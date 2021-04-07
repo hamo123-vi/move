@@ -21,5 +21,10 @@
             $this->dao->update_service_by_id($data, $id);
         }
 
+        public function get_all_services()
+        {
+            return $this->dao->get_all_services();
+        }
+
     }
 ?>

@@ -12,4 +12,8 @@ Flight::route('PUT /update_service/@id', function($id){
     Flight::json($data);
 });
 
+Flight::route('GET /all_services', function(){
+    Flight::json(Flight::serviceService()->get_all_services());
+})
+
 ?>
