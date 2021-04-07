@@ -8,11 +8,6 @@ class ServiceDao extends BaseDao
     {
         $this->insert("services", $service);
     }
-
-    public function update_service_by_type($service,$type)
-    {
-        $this->update("services", $type, $service, "type");
-    }
     
     public function update_service_by_id($service,$id)
     {

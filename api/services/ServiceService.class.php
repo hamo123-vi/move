@@ -16,5 +16,10 @@
             return $this->dao->insert_service($service);
         }
 
+        public function update_service_by_id($data, $id)
+        {
+            $this->dao->update_service_by_id($data, $id);
+        }
+
     }
 ?>
