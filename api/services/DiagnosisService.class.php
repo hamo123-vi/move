@@ -11,19 +11,14 @@
             $this->dao=new DiagnosisDao();
         }
 
-        public function get_all_appointments()
-        {
-            return $this->dao->get_all_appointments();
-        }
-
         public function insert_diagnosis($diagnosis)
         {
             $this->dao->insert_diagnosis($diagnosis);
         }
 
-        public function update_appointment($id, $appointment)
+        public function update_diagnosis($diagnosis, $id)
         {
-            $this->dao->update_appointment($id, $appointment);
+            $this->dao->update_diagnosis_by_id($diagnosis, $id);
         }
 
     }
