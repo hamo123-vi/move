@@ -16,4 +16,9 @@
            return $this->dao->get_diagnosis_by_examination_id($examination_id);
         }
 
+        public function get_diagnosis_by_user_id($user_id)
+        {
+            return $this->dao->get_diagnosis_by_user_id($user_id);
+        }
+
     }
