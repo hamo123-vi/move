@@ -9,6 +9,39 @@ class ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63
     public static $files = array (
         'fc73bab8d04e21bcdda37ca319c63800' => __DIR__ . '/..' . '/mikecao/flight/flight/autoload.php',
         '5b7d984aab5ae919d3362ad9588977eb' => __DIR__ . '/..' . '/mikecao/flight/flight/Flight.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Component\\Finder\\' => 25,
+            'Swagger\\' => 8,
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Lexer\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Symfony\\Component\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
+        'Swagger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
     );
 
     public static $classMap = array (
@@ -18,6 +51,8 @@ class ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63::$classMap;
 
         }, null, ClassLoader::class);
