@@ -47,5 +47,16 @@ Flight::map('query', function($name, $default_value){
     return $query_param;
 });
 
+#Swagger documentation
+Flight::route('GET /swagger', function(){
+    $openapi = @\OpenApi\scan(dirname(__FILE__)."/routes");
+    header('Content-Type: application/json');
+    echo $openapi->toJson();
+  });
+  
+  Flight::route('GET /', function(){
+    Flight::redirect('/docs');
+  });
+
 
 Flight::start();

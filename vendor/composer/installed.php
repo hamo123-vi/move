@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'fce1570399f0f0a20a01150548a9df90afbf31e9',
+    'reference' => '22b96de40d27102ba1774a1bfe969a2bd9c19b4c',
     'name' => 'amil/move',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'fce1570399f0f0a20a01150548a9df90afbf31e9',
+      'reference' => '22b96de40d27102ba1774a1bfe969a2bd9c19b4c',
     ),
     'doctrine/annotations' => 
     array (
@@ -47,6 +47,15 @@
       ),
       'reference' => 'b3120f8db2ae3b358c1c7a412a92d7aa008a57b4',
     ),
+    'symfony/deprecation-contracts' => 
+    array (
+      'pretty_version' => 'v2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5fa56b4074d1ae755beb55617ddafe6f5d78f665',
+    ),
     'symfony/finder' => 
     array (
       'pretty_version' => 'v3.4.47',
@@ -56,14 +65,32 @@
       ),
       'reference' => 'b6b6ad3db3edb1b4b1c1896b1975fb684994de6e',
     ),
-    'zircote/swagger-php' => 
+    'symfony/polyfill-ctype' => 
     array (
-      'pretty_version' => '2.0.16',
-      'version' => '2.0.16.0',
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a25c1bfe508e5f27d5f618648449593a79cbe406',
+      'reference' => 'c6c942b1ac76c82448322025e084cadc56048b4e',
+    ),
+    'symfony/yaml' => 
+    array (
+      'pretty_version' => 'v5.2.5',
+      'version' => '5.2.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '298a08ddda623485208506fcee08817807a251dd',
+    ),
+    'zircote/swagger-php' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c86386bd623ffad6f7e6f9269bf51d42d2797012',
     ),
   ),
 );

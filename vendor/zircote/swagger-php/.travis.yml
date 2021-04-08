@@ -1,12 +1,9 @@
 language: php
 
 php:
-  - 5.6
-  - 7.0
-  - 7.1
   - 7.2
   - 7.3
-  - 7.4
+  - 7.4snapshot
 
 sudo: false
 
@@ -15,10 +12,8 @@ env:
     - PHPUNIT=1
 
 matrix:
-  fast_finish: true
-
   include:
-    - php: 7.4
+    - php: 7.3
       env: PHPCS=1 PHPUNIT=0
 
 before_script:
@@ -27,4 +22,5 @@ before_script:
 
 script:
   - sh -c "if [ '$PHPUNIT' = '1' ]; then ./bin/phpunit; fi"
+
   - sh -c "if [ '$PHPCS' = '1' ]; then ./bin/phpcs -p --extensions=php --standard=PSR2 --error-severity=1 --warning-severity=0 ./src ./tests; fi"

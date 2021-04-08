@@ -12,6 +12,12 @@ Flight::route('PUT /update_service/@id', function($id){
     Flight::json($data);
 });
 
+/**
+ * @OA\Get(
+ *     path="/all_services",
+ *     @OA\Response(response="200", description="Get services from database")
+ * )
+ */
 Flight::route('GET /all_services', function(){
     Flight::json(Flight::serviceService()->get_all_services());
 })
