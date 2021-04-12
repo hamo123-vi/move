@@ -19,6 +19,11 @@ class UserDao extends BaseDao
                             LIMIT ${limit} OFFSET ${offset}", []);
     }
 
+    public function get_user_by_token($token)
+    {
+        return $this->query_unique("SELECT * FROM users WHERE token = :token", ["token" => $token]);
+    }
+
     public function add_user($user)
     {
         $this->insert("users", $user);

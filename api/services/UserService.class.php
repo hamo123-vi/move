@@ -18,14 +18,30 @@
             return $this->dao->get_user_by_id($id);
         }
 
-        public function add_user($user)
-        {
-            $this->dao->add_user($user);
-        }
-
         public function update_user_by_id($id, $user)
         {
             $this->dao->update_user_by_id($id, $user);
+        }
+
+        public function register($user)
+        {
+            $user=$this->dao->add_user([
+                
+                "first_name" => $user['first_name'],
+                "last_name" => $user['last_name'],
+                "email" => $user['email'],
+                "password" => $user['password'],
+                "phone_number" => $user['phone_number'],
+                "token" => md5(random_bytes(16))
+
+            ]);
+        }
+
+        public function confirm($token)
+        {
+            $user = $this->dao->get_user_by_token($token);
+            if(!isset($user['id'])) throw new Exception("Invalid token");
+            $this->dao->update_user_by_id($user['id'], ['status'=>'ACTIVE']);
         }
     }
 ?>

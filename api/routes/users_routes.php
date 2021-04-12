@@ -38,7 +38,7 @@ Flight::route('GET /user/@id',function($id){
 });
 
 /**
- * @OA\Post(path="/user",
+ * @OA\Post(path="/user/register",
  * @OA\RequestBody(
     * description="Main user info",
     * required=true,
@@ -49,14 +49,14 @@ Flight::route('GET /user/@id',function($id){
                 * @OA\Property(property="first_name", type="string", example="", description="Type in name"),
                 * @OA\Property(property="last_name", type="string", example="", description="Type in surname"),
                 * @OA\Property(property="phone_number", type="string", example="", description="Type in phone number") ) ) ),
- * @OA\Response(response="200", description="Insert user in database")
+ * @OA\Response(response="200", description="Register")
  * )
  *  
  */
-Flight::route('POST /user', function(){
+Flight::route('POST /user/register', function(){
     $request=Flight::request();
     $data=$request->data->getData();
-    Flight::userService()->add_user($data);
+    Flight::userService()->register($data);
     Flight::json($data);
 });
 
@@ -81,4 +81,9 @@ Flight::route('PUT /update_user/@id', function($id){
     $data=Flight::request()->data->getData();
     Flight::userService()->update_user_by_id($id, $data);
     Flight::json($data);
+});
+
+Flight::route('GET /user/confirm/@token', function($token){
+    Flight::userService()->confirm($token);
+    Flight::json(['message' => 'Your profile has been activated!']);
 });
