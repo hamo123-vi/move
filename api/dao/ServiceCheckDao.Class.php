@@ -25,4 +25,9 @@ class ServiceCheckDao extends BaseDao
                                 ['appointment_id' => $appointment_id]
                             );
     }
+
+    public function add_service_check($service_check)
+    {
+        $this->insert("services_check",$service_check);
+    }
 }

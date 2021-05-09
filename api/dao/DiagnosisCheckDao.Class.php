@@ -22,4 +22,9 @@ class DiagnosisCheckDao extends BaseDao
                             ["user_id" => $user_id]
                             );
     }
+
+    public function add_diagnosis_check($diagnosis_check)
+    {
+        $this->insert("diagnosis_check",$diagnosis_check);
+    }
 }

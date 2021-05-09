@@ -21,5 +21,10 @@
             return $this->dao->get_total_price_for_appointment($appointment_id);
         }
 
+        public function add_service_check($service_check)
+        {
+            $this->dao->add_service_check($service_check);
+        }
+
     }
 ?>

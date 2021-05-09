@@ -83,6 +83,12 @@ Flight::route('PUT /update_user/@id', function($id){
     Flight::json($data);
 });
 
+/**
+ * @OA\Get(path="/user/confirm/{token}",
+ *      @OA\Parameter(@OA\Schema(type="string"),in="path",allowReserved=true,name="token",default=""),
+ *      @OA\Response(response="200", description="Activate profile"),
+ * )
+ */
 Flight::route('GET /user/confirm/@token', function($token){
     Flight::userService()->confirm($token);
     Flight::json(['message' => 'Your profile has been activated!']);

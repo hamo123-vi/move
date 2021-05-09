@@ -21,4 +21,8 @@
             return $this->dao->get_diagnosis_by_user_id($user_id);
         }
 
+        public function add_diagnosis_check($diagnosis_check)
+        {
+            $this->dao->add_diagnosis_check($diagnosis_check);
+        }
     }

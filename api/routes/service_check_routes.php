@@ -19,3 +19,22 @@ Flight::route('GET /services_on_appointment/@id', function($id){
 Flight::route('GET /price_for_appointment/@id', function($id){
     Flight::json(Flight::serviceCheckService()->get_total_price_for_appointment($id));
 });
+
+/**
+ * @OA\Post(path="/service_check",
+ * @OA\RequestBody(
+    * description="Many to many service table",
+    * required=true,
+        * @OA\MediaType(mediaType="application/json",
+            * @OA\Schema(
+                * @OA\Property(property="service_id", type="integer", example="", description="Type in service_id"),
+                * @OA\Property(property="appointment_id", type="integer", example="", description="Type in appointment_id") ) ) ),
+ * @OA\Response(response="200", description="Insert service_check in database")
+ * )
+ *  
+ */
+Flight::route('POST /service_check', function(){
+    $data=Flight::request()->data->getData();
+    Flight::serviceCheckService()->add_service_check($data);
+    Flight::json($data);
+});
