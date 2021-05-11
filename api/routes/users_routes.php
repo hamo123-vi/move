@@ -92,4 +92,22 @@ Flight::route('PUT /update_user/@id', function($id){
 Flight::route('GET /user/confirm/@token', function($token){
     Flight::userService()->confirm($token);
     Flight::json(['message' => 'Your profile has been activated!']);
+}); 
+
+/**
+ * @OA\Post(path="/user/login",
+ * @OA\RequestBody(
+    * description="Type in login data",
+    * required=true,
+        * @OA\MediaType(mediaType="application/json",
+            * @OA\Schema(
+                * @OA\Property(property="email", type="string", example="", description="Type in email"),
+                * @OA\Property(property="password", type="string", example="", description="Type in password") ) ) ),
+ * @OA\Response(response="200", description="Login")
+ * )
+ *  
+ */
+Flight::route('POST /user/login', function(){
+    $data=Flight::request()->data->getData();
+    Flight::json(Flight::userService()->login($data));
 });

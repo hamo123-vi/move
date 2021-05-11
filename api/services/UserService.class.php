@@ -30,7 +30,7 @@
                 "first_name" => $user['first_name'],
                 "last_name" => $user['last_name'],
                 "email" => $user['email'],
-                "password" => $user['password'],
+                "password" => md5($user['password']),
                 "phone_number" => $user['phone_number'],
                 "token" => md5(random_bytes(16))
 
@@ -42,6 +42,15 @@
             $user = $this->dao->get_user_by_token($token);
             if(!isset($user['id'])) throw new Exception("Invalid token");
             $this->dao->update_user_by_id($user['id'], ['status'=>'ACTIVE']);
+        }
+
+        public function login($user)
+        {
+            $db_user=$this->dao->get_user_by_email($user['email']);
+            if(!isset($db_user['id'])) throw new Exception("User does not exist in database", 400);
+            if($db_user['status'] != 'ACTIVE') throw new Exception("Account is not active");
+            if($db_user['password'] != md5($user['password'])) throw new Exception("Invalid password!");
+            return $db_user;
         }
     }
 ?>
