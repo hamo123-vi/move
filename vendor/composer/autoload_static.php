@@ -21,9 +21,17 @@ class ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Finder\\' => 25,
         ),
+        'P' => 
+        array (
+            'Psr\\Cache\\' => 10,
+        ),
         'O' => 
         array (
             'OpenApi\\' => 8,
+        ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
         ),
         'D' => 
         array (
@@ -45,9 +53,17 @@ class ComposerStaticInitd8bb3ce5ee9ce9d6d02898b1e98dbb63
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
         ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
         'OpenApi\\' => 
         array (
             0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
         'Doctrine\\Common\\Lexer\\' => 
         array (

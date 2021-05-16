@@ -16,7 +16,7 @@ namespace OpenApi\Annotations;
 class Components extends AbstractAnnotation
 {
     /**
-     * Schema reference
+     * Schema reference.
      *
      * @var string
      */
@@ -81,26 +81,26 @@ class Components extends AbstractAnnotation
     /**
      * Reusable Callbacks.
      *
-     * @var Callback[]
+     * @var callback[]
      */
     public $callbacks = UNDEFINED;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static $_parents = [
-        OpenApi::class
+        OpenApi::class,
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static $_nested = [
         Schema::class => ['schemas', 'schema'],
         Response::class => ['responses', 'response'],
         Parameter::class => ['parameters', 'parameter'],
         RequestBody::class => ['requestBodies', 'request'],
-        Examples::class => ['examples'],
+        Examples::class => ['examples', 'example'],
         Header::class => ['headers', 'header'],
         SecurityScheme::class => ['securitySchemes', 'securityScheme'],
         Link::class => ['links', 'link'],

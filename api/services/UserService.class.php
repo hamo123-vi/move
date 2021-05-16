@@ -1,7 +1,9 @@
 <?php 
     require_once dirname(__FILE__)."/../dao/UserDao.Class.php";
+    use \Firebase\JWT\JWT;
     class UserService 
     {
+        
         private $dao;
         public function __construct()
         {
@@ -50,7 +52,8 @@
             if(!isset($db_user['id'])) throw new Exception("User does not exist in database", 400);
             if($db_user['status'] != 'ACTIVE') throw new Exception("Account is not active");
             if($db_user['password'] != md5($user['password'])) throw new Exception("Invalid password!");
-            return $db_user;
+            $jwt = JWT::encode(["id" => $db_user["id"], "role" => $db_user["role"]], "JWT SECRET");
+            return ["token" => $jwt];
         }
 
         public function reset($user){

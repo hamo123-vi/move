@@ -11,7 +11,7 @@ Generate interactive [OpenAPI](https://www.openapis.org) documentation for your 
 - Compatible with the OpenAPI 3.0 specification.
 - Extracts information from code & existing phpdoc annotations.
 - Command-line interface available.
-- [Documentation site](http://zircote.com/swagger-php/) with a getting started guide.
+- [Documentation site](https://zircote.github.io/swagger-php/) with a getting started guide.
 - Exceptional error reporting (with hints, context)
 
 ## Installation (with [Composer](https://getcomposer.org))
@@ -43,7 +43,7 @@ Add annotations to your php files.
  */
 ```
 
-Visit the [Documentation website](http://zircote.com/swagger-php/) for the [Getting started guide](http://zircote.com/swagger-php/Getting-started.html) or look at the [Examples directory](Examples/) for more examples.
+Visit the [Documentation website](https://zircote.github.io/swagger-php/) for the [Getting started guide](https://zircote.github.io/swagger-php/Getting-started.html) or look at the [Examples directory](Examples/) for more examples.
 
 ### Usage from php
 
@@ -103,22 +103,24 @@ or pull requests.
 The documentation website is build from the [docs](docs/) folder with [vuepress](https://vuepress.vuejs.org).
 
 Make sure pull requests pass [PHPUnit](https://phpunit.de/)
-and [PHP_CodeSniffer](https://github.com/cakephp/cakephp-codesniffer) (PSR-2) tests.
+and [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (PSR-2) tests.
 
-To run both unittests and linting execute:
-
+### To run both unit tests and linting execute:
 ```bash
 composer test
 ```
 
-Running only unittests:
-
+### Running unit tests only:
 ```bash
 ./bin/phpunit
 ```
 
-Running only linting:
-
+### Running linting only:
 ```bash
-./bin/phpcs -p --extensions=php --standard=PSR2 --error-severity=1 --warning-severity=0 ./src ./tests
+composer lint
+```
+
+### To make `php-cs-fixer` fix linting errors:
+```bash
+composer cs
 ```
