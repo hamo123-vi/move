@@ -2,12 +2,19 @@
 
 /* Swagger documentation */
 /**
- * @OA\Info(title="Move API", version="0.1")
+ * @OA\Info(title="move API", version="0.1"),
  * @OA\OpenApi(
  *    @OA\Server(url="http://localhost/move/api/", description="Development Environment" )
  * ),
- * @OA\SecurityScheme(securityScheme="ApiKeyAuth", type="apiKey", in="header", name="Authentication" )
+ * @OA\SecurityScheme(
+ *      securityScheme="ApiKeyAuth",
+ *      in="header",
+ *      name="Authorization",
+ *      type="apiKey"
+ * ),
  */
+
+use Firebase\JWT\JWT;
 
 /**
  * @OA\Get(
@@ -26,15 +33,34 @@ Flight::route('GET /users',function(){
 });
 
 /**
- * @OA\Get(path="/user{id}",
- *      @OA\Parameter(@OA\Schema(type="string"),in="path",allowReserved=true,name="id",default="/1"),
+ * @OA\Get(path="/user/{id}", tags={"Users"}, security={{"ApiKeyAuth": {}}},
+ *      @OA\Parameter(type="string",in="path",allowReserved=true,name="id",default="1"),
  *      @OA\Response(response="200", description="Get users from database by id parameter"),
  * )
  */
 
 Flight::route('GET /user/@id',function($id){
-    $user=Flight::userService()->get_user_by_id($id);
-    Flight::json($user);
+    $headers=getallheaders();
+    $token=@$headers["Authorization"];
+    try
+    {
+        $jwt=(array)JWT::decode($token, "JWT SECRET", ["HS256"]);
+        if($jwt['id'] == $id)
+        {
+            $user=Flight::userService()->get_user_by_id($id);
+            Flight::json($user);
+        }
+        else
+        {
+            Flight::json(["message" => "This account is not for you"],403);
+        }
+    }
+    catch(Exception $e)
+    {
+        Flight::json(["message" => $e->getMessage()],403);
+    }
+    
+    
 });
 
 /**
