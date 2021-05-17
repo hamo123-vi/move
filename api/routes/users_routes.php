@@ -40,6 +40,7 @@ Flight::route('GET /users',function(){
  */
 
 Flight::route('GET /users/@id',function($id){
+    if(Flight::get('user')['id'] != $id) throw new Exception ("Not for you!", 403);
     Flight::json(Flight::userService()->get_user_by_id($id));
 });
 

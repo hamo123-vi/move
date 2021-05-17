@@ -3,18 +3,6 @@
 #Import FlightPHP modules
 require dirname(__FILE__).'/../vendor/autoload.php';
 
-#Import Routes layer
-require_once dirname(__FILE__)."/routes/middleware.php";
-require_once dirname(__FILE__)."/routes/users_routes.php";
-require_once dirname(__FILE__)."/routes/services_routes.php";
-require_once dirname(__FILE__)."/routes/service_check_routes.php";
-require_once dirname(__FILE__)."/routes/appointments_routes.php";
-require_once dirname(__FILE__)."/routes/generals_routes.php";
-require_once dirname(__FILE__)."/routes/examinations_routes.php";
-require_once dirname(__FILE__)."/routes/diagnosis_check_routes.php";
-require_once dirname(__FILE__)."/routes/diagnosis_routes.php";
-require_once dirname(__FILE__)."/routes/workouts_routes.php";
-require_once dirname(__FILE__)."/routes/workout_check_routes.php";
 
 #Import Services layer
 require_once dirname(__FILE__)."/services/UserService.class.php";
@@ -58,6 +46,18 @@ Flight::route('GET /swagger', function(){
   Flight::route('GET /', function(){
     Flight::redirect('/docs');
   });
-
+  
+#Import Routes layer
+require_once dirname(__FILE__)."/routes/middleware.php";
+require_once dirname(__FILE__)."/routes/users_routes.php";
+require_once dirname(__FILE__)."/routes/services_routes.php";
+require_once dirname(__FILE__)."/routes/service_check_routes.php";
+require_once dirname(__FILE__)."/routes/appointments_routes.php";
+require_once dirname(__FILE__)."/routes/generals_routes.php";
+require_once dirname(__FILE__)."/routes/examinations_routes.php";
+require_once dirname(__FILE__)."/routes/diagnosis_check_routes.php";
+require_once dirname(__FILE__)."/routes/diagnosis_routes.php";
+require_once dirname(__FILE__)."/routes/workouts_routes.php";
+require_once dirname(__FILE__)."/routes/workout_check_routes.php";
 
 Flight::start();
