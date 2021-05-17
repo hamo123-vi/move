@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @OA\Post(path="/service",
+ * @OA\Post(path="/admin/service", tags={"Admin", "Services"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="Main service info",
     * required=true,
@@ -14,14 +14,14 @@
  * )
  *  
  */
-Flight::route('POST /service', function(){
+Flight::route('POST /admin/service', function(){
     $data=Flight::request()->data->getData();
     Flight::serviceService()->insert_service($data);
     Flight::json($data);
 });
 
 /**
- * @OA\Put(path="/update_service/{id}",
+ * @OA\Put(path="/admin/service/update/{id}", tags={"Admin", "Services"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="Service info for update",
     * required=true,
@@ -35,7 +35,7 @@ Flight::route('POST /service', function(){
  * )
  *  
  */
-Flight::route('PUT /update_service/@id', function($id){
+Flight::route('PUT /admin/service/update/@id', function($id){
     $data=Flight::request()->data->getData();
     Flight::serviceService()->update_service_by_id($data, $id);
     Flight::json($data);
@@ -43,11 +43,11 @@ Flight::route('PUT /update_service/@id', function($id){
 
 /**
  * @OA\Get(
- *     path="/all_services",
+ *     path="/services", tags={"All users", "Services"},
  *     @OA\Response(response="200", description="Get services from database")
  * )
  */
-Flight::route('GET /all_services', function(){
+Flight::route('GET /services', function(){
     Flight::json(Flight::serviceService()->get_all_services());
 })
 

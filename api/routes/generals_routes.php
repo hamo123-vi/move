@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @OA\Get(path="/general/{entity}",
+ * @OA\Get(path="/generals/{entity}", tags={"Generals", "All users"}, 
  *      @OA\Parameter(@OA\Schema(type="string"),in="path",allowReserved=true,name="entity",default="about"),
  *      @OA\Response(response="200", description="Get general info from database by name of column saved below"),
  * )
  */
-Flight::route('GET /general/@entity', function($entity){
+Flight::route('GET /generals/@entity', function($entity){
     Flight::json(Flight::generalService()->get_general($entity));
 });
 
 
 /**
- * @OA\Put(path="/general/{entity}",
+ * @OA\Put(path="/admin/generals/update/{entity}", tags={"Admin", "Generals"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="General info for update",
     * required=true,
@@ -27,7 +27,7 @@ Flight::route('GET /general/@entity', function($entity){
  * )
  *  
  */
-Flight::route('PUT /general/@entity', function(){
+Flight::route('PUT /admin/generals/update/@entity', function(){
     $data=Flight::request()->data->getData();
     Flight::generalService()->update_generals($data);
 });

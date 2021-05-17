@@ -18,14 +18,15 @@ use Firebase\JWT\JWT;
 
 /**
  * @OA\Get(
- *     path="/users", tags={"Users"}, security={{"ApiKeyAuth": {}}},
+ *     path="/admin/users", tags={"Admin"}, security={{"ApiKeyAuth": {}}},
  *     @OA\Response(response="200", description="Get users from database"),
  *     @OA\Parameter(@OA\Schema(type="integer"),in="query",name="offset",default=0, description="Offset query parameter"),
  *     @OA\Parameter(@OA\Schema(type="integer"),in="query",name="limit",default=25, description="Limit query parameter"),
  * )
  */
 
-Flight::route('GET /users',function(){
+Flight::route('GET /admin/users',function(){
+
     $offset=Flight::request()->query['offset'];
     $limit=Flight::request()->query['limit'];
     $users=Flight::userService()->get_all_users($offset, $limit);
@@ -33,7 +34,7 @@ Flight::route('GET /users',function(){
 });
 
 /**
- * @OA\Get(path="/users/{id}", tags={"Users"}, security={{"ApiKeyAuth": {}}},
+ * @OA\Get(path="/users/{id}", tags={"Users", "Admin"}, security={{"ApiKeyAuth": {}}},
  *      @OA\Parameter(type="string",in="path",allowReserved=true,name="id",default="1"),
  *      @OA\Response(response="200", description="Get users from database by id parameter"),
  * )
@@ -68,7 +69,7 @@ Flight::route('POST /register', function(){
 });
 
 /**
- * @OA\Put(path="/users/update/{id}", tags={"Users"}, security={{"ApiKeyAuth": {}}},
+ * @OA\Put(path="/users/update/{id}", tags={"Users", "Admin"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="User info for update",
     * required=true,

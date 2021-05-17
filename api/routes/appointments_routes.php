@@ -2,16 +2,16 @@
 
 /**
  * @OA\Get(
- *     path="/appointments",
+ *     path="/admin/appointments", tags={"Admin", "Appointments"}, security={{"ApiKeyAuth": {}}},
  *     @OA\Response(response="200", description="Get appointments from database")
  * )
  */
-Flight::route('GET /appointments', function(){
+Flight::route('GET /admin/appointments', function(){
     Flight::json(Flight::appointmentService()->get_all_appointments());
 });
 
 /**
- * @OA\Post(path="/appointment",
+ * @OA\Post(path="/users/appointment", tags={"Users", "Admin", "Appointments"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="Main appointment info",
     * required=true,
@@ -25,14 +25,14 @@ Flight::route('GET /appointments', function(){
  * )
  *  
  */
-Flight::route('POST /appointment', function(){
+Flight::route('POST /users/appointment', function(){
     $data=Flight::request()->data->getData();
     Flight::appointmentService()->insert_appointment($data);
     Flight::json($data);
 });
 
 /**
- * @OA\Put(path="/update_appointment/{id}",
+ * @OA\Put(path="/admin/appointments/update/{id}", tags={"Appointments", "Admin"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="Appointment info for update",
     * required=true,
@@ -47,7 +47,7 @@ Flight::route('POST /appointment', function(){
  * )
  *  
  */
-Flight::route('PUT /update_appointment/@id', function($id){
+Flight::route('PUT /admin/appointments/update/@id', function($id){
     $data=Flight::request()->data->getData();
     Flight::appointmentService()->update_appointment($id, $data);
     Flight::json($data);

@@ -2,16 +2,16 @@
 
 /**
  * @OA\Get(
- *     path="/examinations",
+ *     path="/admin/examinations", tags={"Examinations", "Admin"}, security={{"ApiKeyAuth": {}}},
  *     @OA\Response(response="200", description="Get examinations from database")
  * )
  */
-Flight::route('GET /examinations', function(){
+Flight::route('GET /admin/examinations', function(){
     Flight::json(Flight::examinationService()->get_examinations());
 });
 
 /**
- * @OA\Post(path="/examination",
+ * @OA\Post(path="/admin/examination", tags={"Examinations", "Admin"},
  * @OA\RequestBody(
     * description="Main examination info",
     * required=true,
@@ -22,7 +22,7 @@ Flight::route('GET /examinations', function(){
  * )
  *  
  */
-Flight::route('POST /examination', function(){
+Flight::route('POST /admin/examination', function(){
     $data=Flight::request()->data->getData();
     Flight::examinationService()->insert_examination($data);
     Flight::json($data);

@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @OA\Get(path="/diagnosis_on_examination/{id}",
+ * @OA\Get(path="/users/diagnosis/examinations/{id}", tags={"Users", "Admin", "Diagnosis"}, security={{"ApiKeyAuth": {}}},
  *      @OA\Parameter(@OA\Schema(type="string"),in="path",allowReserved=true,name="id",default="1"),
  *      @OA\Response(response="200", description="Get diagnosis from database by examination id parameter"),
  * )
  */
-Flight::route('GET /diagnosis_on_examination/@id', function($id){
+Flight::route('GET /users/diagnosis/examinations/@id', function($id){
     Flight::json(Flight::diagnosisCheckService()->get_diagnosis_by_examination_id($id));
 });
 
 /**
- * @OA\Get(path="/diagnosis_of_user/{id}",
+ * @OA\Get(path="/users/diagnosis/{id}", tags={"Users", "Admin", "Diagnosis"}
  *      @OA\Parameter(@OA\Schema(type="string"),in="path",allowReserved=true,name="id",default="1"),
  *      @OA\Response(response="200", description="Get diagnosis from database by user id parameter"),
  * )
  */
-Flight::route('GET /diagnosis_of_user/@id', function($id){
+Flight::route('GET /users/diagnosis/@id', function($id){
     Flight::json(Flight::diagnosisCheckService()->get_diagnosis_by_user_id($id));
 });
 
 /**
- * @OA\Post(path="/diagnosis_check",
+ * @OA\Post(path="/admin/diagnosis-check", tags={"Admin", "Diagnosis"}, security={{"ApiKeyAuth": {}}},
  * @OA\RequestBody(
     * description="Many to many diagnosis table",
     * required=true,
@@ -33,7 +33,7 @@ Flight::route('GET /diagnosis_of_user/@id', function($id){
  * )
  *  
  */
-Flight::route('POST /diagnosis_check', function(){
+Flight::route('POST /admin/diagnosis-check', function(){
     $data=Flight::request()->data->getData();
     Flight::diagnosisCheckService()->add_diagnosis_check($data);
     Flight::json($data);
