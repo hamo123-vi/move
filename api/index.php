@@ -4,6 +4,7 @@
 require dirname(__FILE__).'/../vendor/autoload.php';
 
 #Import Routes layer
+require_once dirname(__FILE__)."/routes/middleware.php";
 require_once dirname(__FILE__)."/routes/users_routes.php";
 require_once dirname(__FILE__)."/routes/services_routes.php";
 require_once dirname(__FILE__)."/routes/service_check_routes.php";
